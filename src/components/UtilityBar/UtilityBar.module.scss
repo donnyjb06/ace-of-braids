@@ -1,0 +1,42 @@
+.utility-bar {
+  --display: none;
+  --padding: 12px 112px;
+  display: var(--display);
+  background-color: var(--clr-bg);
+  padding: var(--padding);
+  color: var(--clr-neutral-l);
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  min-width: 100%;
+
+  @media (width > 1024px) {
+    --display: flex;
+  }
+
+  &__contact-group {
+    --gap: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__email {
+    font-weight: var(--fw-medium);
+  }
+
+  &__socials {
+    --gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    line-height: 1;
+  }
+
+  &__social-icons {
+    --gap: 1.6rem;
+    display: flex;
+    gap: var(--gap);
+  }
+}

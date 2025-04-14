@@ -1,0 +1,12 @@
+.nav__link {
+  font-size: var(--fs-regular);
+  font-weight: var(--fw-medium);
+  color: rgb(var(--clr-secondary-accent));
+  transition: color 0.3s ease-in-out;
+}
+
+.nav__link_status_active {
+  position: relative;
+  display: block;
+  color: var(--clr-primary);
+}

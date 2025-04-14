@@ -1,0 +1,11 @@
+.nav__menu-button {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  stroke: var(--clr-primary);
+  stroke-width: 2px;
+  margin-right: 10px;
+}

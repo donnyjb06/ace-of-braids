@@ -1,0 +1,14 @@
+.button {
+  --padding: 1.8rem 3.1rem;
+  --br: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding);
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  font-size: var(--fs-s);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--br);
+  border: none;
+}
