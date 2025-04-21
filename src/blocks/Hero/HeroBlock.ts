@@ -53,9 +53,10 @@ export const HeroBlock: Block = {
     },
     {
       name: 'variant',
+      enumName: "variant_enum",
       type: 'select',
       required: true,
-      defaultValue: 'landing',
+      defaultValue: 'primary',
       options: [
         { label: 'Primary', value: 'primary' },
         { label: 'Secondary', value: 'secondary' },
