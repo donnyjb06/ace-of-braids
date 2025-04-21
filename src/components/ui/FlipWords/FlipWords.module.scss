@@ -1,0 +1,19 @@
+.flip-words {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  color: var(--clr-neutral-l);
+
+  &__exit-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &__enter-text {
+    display: inline-block;
+  }
+
+  &__non-breaking-space {
+    display: inline-block;
+  }
+}
