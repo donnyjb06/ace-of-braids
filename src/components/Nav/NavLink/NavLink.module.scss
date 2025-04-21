@@ -18,8 +18,9 @@
 .nav__link {
   font-size: var(--fs-s);
   font-weight: var(--fw-medium);
-  color: var(--clr-neutral-d);
+  color: var(--clr-neutral-l);
   transition: color 0.3s ease-in-out;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 }
 
 .nav__link_status_active {
