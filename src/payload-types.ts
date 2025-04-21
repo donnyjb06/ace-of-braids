@@ -283,49 +283,68 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Landing {
   id: number;
-  layout: (
-    | {
-        heading: string;
-        subheading?: string | null;
-        body: string;
-        images?:
-          | {
-              image?: (number | null) | Media;
-              id?: string | null;
-            }[]
-          | null;
-        cta?: {
-          label?: string | null;
-          url?: string | null;
-        };
-        variant: 'landing' | 'about' | 'services' | 'gallery' | 'booking' | 'policy';
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-block';
-      }
-    | {
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'about-kate';
-      }
-    | {
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'services-block';
-      }
-    | {
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'gallery-block';
-      }
-    | {
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'testimonials-block';
-      }
-  )[];
+  layout: (HeroBlock | AboutBlock | ServicesBlock | GalleryBlock | TestimonialsBlock)[];
   updatedAt?: string | null;
   createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock".
+ */
+export interface HeroBlock {
+  heading: string;
+  flipText?:
+    | {
+        subheading: string;
+        id?: string | null;
+      }[]
+    | null;
+  body: string;
+  image?: (number | null) | Media;
+  cta?: {
+    label?: string | null;
+    url?: string | null;
+  };
+  variant: 'primary' | 'secondary';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutBlock".
+ */
+export interface AboutBlock {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'about-kate';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServicesBlock".
+ */
+export interface ServicesBlock {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'services-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock".
+ */
+export interface GalleryBlock {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'gallery-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock".
+ */
+export interface TestimonialsBlock {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonials-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -335,56 +354,71 @@ export interface LandingSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        'hero-block'?:
-          | T
-          | {
-              heading?: T;
-              subheading?: T;
-              body?: T;
-              images?:
-                | T
-                | {
-                    image?: T;
-                    id?: T;
-                  };
-              cta?:
-                | T
-                | {
-                    label?: T;
-                    url?: T;
-                  };
-              variant?: T;
-              id?: T;
-              blockName?: T;
-            };
-        'about-kate'?:
-          | T
-          | {
-              id?: T;
-              blockName?: T;
-            };
-        'services-block'?:
-          | T
-          | {
-              id?: T;
-              blockName?: T;
-            };
-        'gallery-block'?:
-          | T
-          | {
-              id?: T;
-              blockName?: T;
-            };
-        'testimonials-block'?:
-          | T
-          | {
-              id?: T;
-              blockName?: T;
-            };
+        'hero-block'?: T | HeroBlockSelect<T>;
+        'about-kate'?: T | AboutBlockSelect<T>;
+        'services-block'?: T | ServicesBlockSelect<T>;
+        'gallery-block'?: T | GalleryBlockSelect<T>;
+        'testimonials-block'?: T | TestimonialsBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBlock_select".
+ */
+export interface HeroBlockSelect<T extends boolean = true> {
+  heading?: T;
+  flipText?:
+    | T
+    | {
+        subheading?: T;
+        id?: T;
+      };
+  body?: T;
+  image?: T;
+  cta?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+      };
+  variant?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutBlock_select".
+ */
+export interface AboutBlockSelect<T extends boolean = true> {
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ServicesBlock_select".
+ */
+export interface ServicesBlockSelect<T extends boolean = true> {
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GalleryBlock_select".
+ */
+export interface GalleryBlockSelect<T extends boolean = true> {
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlock_select".
+ */
+export interface TestimonialsBlockSelect<T extends boolean = true> {
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

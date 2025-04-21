@@ -1,8 +1,10 @@
 import { Media } from '@/collections/Media'
+import { max } from '@payloadcms/db-postgres/drizzle'
 import { Block } from 'payload'
 
 export const HeroBlock: Block = {
   slug: 'hero-block',
+  interfaceName: 'HeroBlock',
   labels: {
     singular: 'Hero Section',
     plural: 'Hero Sections',
@@ -14,8 +16,15 @@ export const HeroBlock: Block = {
       required: true,
     },
     {
-      name: 'subheading',
-      type: 'text',
+      name: 'flipText',
+      type: 'array',
+      fields: [
+        {
+          name: 'subheading',
+          type: 'text',
+          required: true,
+        },
+      ],
     },
     {
       name: 'body',
@@ -23,44 +32,34 @@ export const HeroBlock: Block = {
       required: true,
     },
     {
-      name: 'images',
-      type: 'array',
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      maxDepth: 2,
+    },
+    {
+      name: 'cta',
+      type: 'group',
       fields: [
         {
-          name: "image",
-          type: "upload",
-          relationTo: 'media'
-        }
+          name: 'label',
+          type: 'text',
+        },
+        {
+          name: 'url',
+          type: 'text',
+        },
       ],
     },
     {
-      name: "cta",
-      type: "group",
-      fields: [
-        {
-          name: "label",
-          type: "text"
-        },
-        {
-          name: "url",
-          type: "text"
-        }
-      ]
-    },
-    {
-      name: "variant",
-      type: "select",
+      name: 'variant',
+      type: 'select',
       required: true,
-      defaultValue: "landing",
+      defaultValue: 'landing',
       options: [
-        { label: 'Landing', value: 'landing' },
-        { label: 'About', value: 'about' },
-        { label: 'Services', value: 'services' },
-        { label: 'Gallery', value: 'gallery' },
-        { label: 'Booking', value: 'booking' },
-        { label: 'Policy', value: 'policy' },
-      ]
-
-    }
+        { label: 'Primary', value: 'primary' },
+        { label: 'Secondary', value: 'secondary' },
+      ],
+    },
   ],
 }
