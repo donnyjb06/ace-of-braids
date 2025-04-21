@@ -1,5 +1,5 @@
 .button {
-  --padding: 1.8rem 3.1rem;
+  --padding: 1.2rem 2.4rem;
   --br: 1rem;
   display: flex;
   align-items: center;
@@ -7,8 +7,44 @@
   padding: var(--padding);
   background-color: var(--clr-primary);
   color: var(--clr-white);
-  font-size: var(--fs-s);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   border-radius: var(--br);
   border: none;
+  transition: scale 0.3s ease-in;
+  cursor: pointer;
+  gap: 8px;
+
+  @media (width > 768px) {
+    --padding: 1.8rem 2.8rem;
+    font-size: var(--fs-s);
+  }
+
+  &__icon {
+    transition: transform 0.3s ease;
+  }
+}
+
+.button:hover {
+  scale: 1.05;
+}
+
+.button:active {
+  scale: 0.95;
+}
+
+@keyframes slide-icon-click {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(5px);
+  }
+}
+
+.iconClicked {
+  animation: slide-icon-click 0.15s ease-in forwards;
 }
