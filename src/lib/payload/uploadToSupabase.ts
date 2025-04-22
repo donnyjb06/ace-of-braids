@@ -1,4 +1,4 @@
-"use server"
+'use server'
 
 import { BeforeChangeHook } from 'node_modules/payload/dist/collections/config/types'
 import { uploadFile } from '../supabase/uploadFile'
@@ -12,7 +12,10 @@ export const uploadToSupabase: BeforeChangeHook = async ({ data, req, operation 
       throw new Error('No file found in the request.')
     }
 
-    const filename = `${Date.now()}-${req.file?.name}`
+    const originalName = req.file.name
+    const ext = originalName.includes('.') ? originalName.split('.').pop() : 'jpg' // default fallback
+    const baseName = originalName.replace(/\.[^/.]+$/, '') // remove extension
+    const filename = `${Date.now()}-${baseName}.${ext}`
     const supabasePath = `${folder}/${filename}`
 
     try {
@@ -20,18 +23,16 @@ export const uploadToSupabase: BeforeChangeHook = async ({ data, req, operation 
       data.url = publicUrl
 
       if (!data.url) {
-        throw new Error("Image upload failed - no URL generated.")
+        throw new Error('Image upload failed - no URL generated.')
       }
     } catch (error) {
       if (error instanceof Error) {
         console.error('Error has occured when attempting to save photo to Supabase storage')
         throw error
       } else {
-        console.error("An unknown error has occured.")
-        throw new Error("An unknown error has occured.")
+        console.error('An unknown error has occured.')
+        throw new Error('An unknown error has occured.')
       }
     }
   }
 }
-
-
