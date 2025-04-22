@@ -53,7 +53,6 @@ export const HeroBlock: Block = {
     },
     {
       name: 'variant',
-      enumName: "variant_enum",
       type: 'select',
       required: true,
       defaultValue: 'primary',

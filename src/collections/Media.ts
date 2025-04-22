@@ -3,11 +3,9 @@ import { uploadToSupabase } from '@/lib/payload/uploadToSupabase'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  upload: true,
   access: {
     read: () => true,
-  },
-  hooks: {
-    beforeChange: [uploadToSupabase]
   },
   fields: [
     {
@@ -37,5 +35,4 @@ export const Media: CollectionConfig = {
 
     }
   ],
-  upload: {},
 }
