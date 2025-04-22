@@ -1,5 +1,3 @@
-import { Media } from '@/collections/Media'
-import { max } from '@payloadcms/db-postgres/drizzle'
 import { Block } from 'payload'
 
 export const HeroBlock: Block = {

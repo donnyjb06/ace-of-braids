@@ -11,7 +11,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Landing } from './globals/Landing'
 import { Media } from './collections/Media'
-
+import { Services } from './collections/Services'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -27,7 +27,7 @@ export default buildConfig({
     },
   },
   globals: [Landing],
-  collections: [Users, Media],
+  collections: [Users, Media, Services],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
