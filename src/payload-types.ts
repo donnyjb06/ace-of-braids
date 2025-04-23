@@ -143,7 +143,7 @@ export interface User {
 export interface Media {
   id: number;
   alt: string;
-  type: 'hero' | 'gallery' | 'profiles' | 'services' | 'testimonials';
+  type: 'hero' | 'gallery' | 'profiles' | 'services' | 'testimonials' | 'misc';
   prefix?: string | null;
   updatedAt: string;
   createdAt: string;

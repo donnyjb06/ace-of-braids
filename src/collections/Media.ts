@@ -23,6 +23,7 @@ export const Media: CollectionConfig = {
         "profiles",
         "services",
         "testimonials",
+        "misc"
       ]
     },
     {
