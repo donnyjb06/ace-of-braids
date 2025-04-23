@@ -40,7 +40,7 @@ const Hero = (block: HeroBlock) => {
         initial={{ opacity: 0, x: -10 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ ease: 'easeOut', duration: 0.5 }}
+        transition={{ ease: 'easeOut', duration: 0.7 }}
       >
         <h1 className={styles.hero__heading}>{heading}</h1>
         {flipText && (
@@ -58,7 +58,7 @@ const Hero = (block: HeroBlock) => {
 
       <div className={styles.hero__overlay}></div>
 
-      <img src={first.url as string} alt={first.alt} className={styles.hero__image} />
+      <img src={first.url as string} alt={first.alt} className={styles.hero__image} loading='lazy' fetchPriority='high' />
     </section>
   )
 }
