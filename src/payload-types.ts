@@ -349,7 +349,7 @@ export interface HeroBlock {
  */
 export interface AboutBlock {
   heading: string;
-  'section-heading': string;
+  sectionHeading: string;
   body?: string | null;
   textBlocks?:
     | {
@@ -442,7 +442,7 @@ export interface HeroBlockSelect<T extends boolean = true> {
  */
 export interface AboutBlockSelect<T extends boolean = true> {
   heading?: T;
-  'section-heading'?: T;
+  sectionHeading?: T;
   body?: T;
   textBlocks?:
     | T
