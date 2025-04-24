@@ -26,6 +26,6 @@
     },
     "target": "ES2022"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/blocks/About"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/blocks/About", "src/components/RenderBlocks"],
   "exclude": ["node_modules"]
 }
