@@ -8,6 +8,7 @@ import Link from 'next/link'
 import Button from '@/components/Button/Button'
 import { redirect } from 'next/navigation'
 import { motion } from 'motion/react'
+import { slideIn } from '@/lib/payload/utils'
 
 const fallbackWords = [
   'timeless power',
@@ -37,10 +38,7 @@ const Hero = (block: HeroBlock) => {
     <section className={styles.hero}>
       <motion.div
         className={styles.hero__content}
-        initial={{ opacity: 0, x: -10 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ ease: 'easeOut', duration: 0.7 }}
+        {...slideIn()}
       >
         <h1 className={styles.hero__heading}>{heading}</h1>
         {flipText && (

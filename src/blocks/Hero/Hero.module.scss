@@ -1,14 +1,10 @@
+@use "../../styles/mixins";
+
 .hero {
-  --padding: 32px 72px;
-  padding: var(--padding);
-  display: flex;
+  @include mixins.section;
   flex-direction: row;
   background-color: var(--clr-primary-accent);
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
   color: var(--clr-neutral-l);
-  text-align: center;
 
   @media (width > 768px) {
     --padding: 32px 110px;

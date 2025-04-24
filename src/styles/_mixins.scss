@@ -1,0 +1,15 @@
+@mixin section {
+  & {
+    --padding: 32px 72px;
+    padding: var(--padding);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    isolation: isolate;
+
+    @media (width > 768px) {
+      --padding: 32px 110px;
+    }
+  }
+}
