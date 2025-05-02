@@ -1,5 +1,4 @@
 import type { CollectionConfig } from 'payload'
-import { uploadToSupabase } from '@/lib/payload/uploadToSupabase'
 
 export const Media: CollectionConfig = {
   slug: 'media',
