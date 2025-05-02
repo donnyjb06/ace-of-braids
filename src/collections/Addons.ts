@@ -1,4 +1,3 @@
-import { label } from 'motion/react-client'
 import type { CollectionConfig } from 'payload'
 
 export const Addons: CollectionConfig = {

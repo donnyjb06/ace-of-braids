@@ -1,4 +1,3 @@
-import { PgSelectQueryBuilderBase } from "@payloadcms/db-postgres/drizzle/pg-core";
 import { useState, useEffect } from "react";
 
 const useMediaQuery = (query: string) => {

@@ -26,12 +26,12 @@ const About = (block: AboutBlock) => {
   }
 
   const renderTextBlocks = useCallback(() => {
-    return textBlocks?.map((text, index) => (
+    return !isPrimary ? textBlocks?.map((text, index) => (
       <p key={index} className={styles.about__body}>
         {text.textBlock}
       </p>
-    ))
-  }, [textBlocks])
+    )) : <p className={styles.about__body}>{body}</p>
+  }, [textBlocks, body])
 
   const ctaUrl = cta?.url ?? ''
 
@@ -68,11 +68,7 @@ const About = (block: AboutBlock) => {
             </motion.div>
           )}
 
-          {!isPrimary ? (
-            <div className={styles['about__text-block-wrapper']}>{renderTextBlocks()}</div>
-          ) : (
-            <p className={styles.about__body}>{body}</p>
-          )}
+          {renderTextBlocks()}
 
           <Button type="cta" className={styles.about__cta} onClick={() => redirect(ctaUrl)}>
             {cta?.label}

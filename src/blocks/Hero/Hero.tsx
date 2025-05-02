@@ -4,7 +4,6 @@ import React from 'react'
 import { HeroBlock, Media } from '@/payload-types'
 import styles from './Hero.module.scss'
 import { FlipWords } from '@/components/ui/FlipWords/flip-words'
-import Link from 'next/link'
 import Button from '@/components/Button/Button'
 import { redirect } from 'next/navigation'
 import { motion } from 'motion/react'
@@ -56,7 +55,7 @@ const Hero = (block: HeroBlock) => {
 
       <div className={styles.hero__overlay}></div>
 
-      <img src={first.url as string} alt={first.alt} className={styles.hero__image} loading='lazy' fetchPriority='high' />
+      <img src={first.url as string} alt={first.alt} className={styles.hero__image} fetchPriority='high' />
     </section>
   )
 }
