@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     services: Service;
+    addons: Addon;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     services: ServicesSelect<false> | ServicesSelect<true>;
+    addons: AddonsSelect<false> | AddonsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -164,9 +166,55 @@ export interface Media {
 export interface Service {
   id: number;
   title: string;
-  price: number;
+  braidType: 'stitchHalf' | 'stitchFull' | 'knotless' | 'fulani' | 'boho' | 'rave' | 'touchUp' | 'notListed';
+  braidAmount?:
+    | {
+        amount?: string | null;
+        price?: number | null;
+        stripePriceId?: string | null;
+        needContact?: ('true' | 'false') | null;
+        id?: string | null;
+      }[]
+    | null;
+  braidSize?:
+    | {
+        size?: string | null;
+        price?: number | null;
+        stripePriceId?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  addonsList?:
+    | {
+        addon?: (number | null) | Addon;
+        id?: string | null;
+      }[]
+    | null;
+  price?: number | null;
   description?: string | null;
   thumbnail?: (number | null) | Media;
+  needContact?: ('true' | 'false') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "addons".
+ */
+export interface Addon {
+  id: number;
+  addonType: 'length' | 'bohoAmount' | 'beads' | 'quickTrim';
+  options?:
+    | {
+        addonOption?: string | null;
+        addonPrice?: number | null;
+        stripePriceId?: string | null;
+        needContact?: ('true' | 'false') | null;
+        id?: string | null;
+      }[]
+    | null;
+  addonPrice?: number | null;
+  stripePriceId?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -188,6 +236,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'services';
         value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'addons';
+        value: number | Addon;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -272,9 +324,54 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface ServicesSelect<T extends boolean = true> {
   title?: T;
+  braidType?: T;
+  braidAmount?:
+    | T
+    | {
+        amount?: T;
+        price?: T;
+        stripePriceId?: T;
+        needContact?: T;
+        id?: T;
+      };
+  braidSize?:
+    | T
+    | {
+        size?: T;
+        price?: T;
+        stripePriceId?: T;
+        id?: T;
+      };
+  addonsList?:
+    | T
+    | {
+        addon?: T;
+        id?: T;
+      };
   price?: T;
   description?: T;
   thumbnail?: T;
+  needContact?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "addons_select".
+ */
+export interface AddonsSelect<T extends boolean = true> {
+  addonType?: T;
+  options?:
+    | T
+    | {
+        addonOption?: T;
+        addonPrice?: T;
+        stripePriceId?: T;
+        needContact?: T;
+        id?: T;
+      };
+  addonPrice?: T;
+  stripePriceId?: T;
   updatedAt?: T;
   createdAt?: T;
 }
