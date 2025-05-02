@@ -14,7 +14,7 @@ export const AboutBlock: Block = {
       required: true,
     },
     {
-      name: 'section-heading',
+      name: 'sectionHeading',
       type: 'text',
       required: true,
     },
