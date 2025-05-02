@@ -21,10 +21,6 @@ const About = (block: AboutBlock) => {
     return typeof img === 'object' && img !== null && 'url' in img
   }
 
-  if (!isPopulatedMedia(sectionImage)) {
-    return null // or render fallback UI
-  }
-
   const renderTextBlocks = useCallback(() => {
     return !isPrimary ? textBlocks?.map((text, index) => (
       <p key={index} className={styles.about__body}>
@@ -32,6 +28,10 @@ const About = (block: AboutBlock) => {
       </p>
     )) : <p className={styles.about__body}>{body}</p>
   }, [textBlocks, body, isPrimary])
+
+  if (!isPopulatedMedia(sectionImage)) {
+    return null // or render fallback UI
+  }
 
   const ctaUrl = cta?.url ?? ''
 
