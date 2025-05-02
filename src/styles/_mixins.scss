@@ -1,15 +1,14 @@
-@mixin section {
+@mixin section($mobile-px, $mobile-py, $px, $py) {
   & {
-    --padding: 32px 72px;
+    --padding: #{$mobile-py} #{$mobile-px};
     padding: var(--padding);
     display: flex;
     position: relative;
     overflow: hidden;
-    text-align: center;
     isolation: isolate;
 
     @media (width > 768px) {
-      --padding: 32px 110px;
+      --padding: #{$py} #{$px};
     }
   }
 }
