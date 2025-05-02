@@ -31,7 +31,7 @@ const About = (block: AboutBlock) => {
         {text.textBlock}
       </p>
     )) : <p className={styles.about__body}>{body}</p>
-  }, [textBlocks, body])
+  }, [textBlocks, body, isPrimary])
 
   const ctaUrl = cta?.url ?? ''
 
