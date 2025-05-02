@@ -469,6 +469,9 @@ export interface AboutBlock {
  * via the `definition` "ServicesBlock".
  */
 export interface ServicesBlock {
+  sectionHeading: string;
+  heading: string;
+  ctaLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'services-block';
@@ -563,6 +566,9 @@ export interface AboutBlockSelect<T extends boolean = true> {
  * via the `definition` "ServicesBlock_select".
  */
 export interface ServicesBlockSelect<T extends boolean = true> {
+  sectionHeading?: T;
+  heading?: T;
+  ctaLabel?: T;
   id?: T;
   blockName?: T;
 }
