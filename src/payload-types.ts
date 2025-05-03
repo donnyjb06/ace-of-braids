@@ -472,6 +472,7 @@ export interface ServicesBlock {
   sectionHeading: string;
   heading: string;
   ctaLabel?: string | null;
+  ctaUrl?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'services-block';
@@ -569,6 +570,7 @@ export interface ServicesBlockSelect<T extends boolean = true> {
   sectionHeading?: T;
   heading?: T;
   ctaLabel?: T;
+  ctaUrl?: T;
   id?: T;
   blockName?: T;
 }

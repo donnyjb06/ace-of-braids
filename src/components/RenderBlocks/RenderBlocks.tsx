@@ -2,6 +2,7 @@
 
 import Hero from "@/blocks/Hero/Hero";
 import About from "@/blocks/About/About";
+import Services from "@/blocks/Services/Services";
 
 interface GenericBlock {
   id?: string | null | number; 
@@ -11,7 +12,8 @@ interface GenericBlock {
 
 const blockComponents: Record<string, React.FC<any>> = {
   'hero-block': Hero,
-  'about-block': About
+  'about-block': About,
+  'services-block': Services
 }
 
 interface RenderBlocksProps {

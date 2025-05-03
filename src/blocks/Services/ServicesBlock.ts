@@ -20,6 +20,11 @@ export const ServicesBlock: Block = {
       name: 'ctaLabel',
       label: 'CTA Label',
       type: 'text',
+    },
+    {
+      name: 'ctaUrl',
+      label: "CTA URL",
+      type: 'text',
     }
   ]
 }
