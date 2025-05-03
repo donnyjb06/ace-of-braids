@@ -12,3 +12,14 @@
     }
   }
 }
+
+@mixin section-heading {
+  font-size: var(--fs-s);
+  font-weight: lighter;
+  border-bottom: 2px solid var(--clr-primary);
+  padding-bottom: 4px;
+}
+
+@mixin main-heading {
+  font-size: clamp(var(--fs-m), 2rem + 2.5vw, var(--fs-l));
+}

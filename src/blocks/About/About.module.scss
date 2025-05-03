@@ -59,10 +59,7 @@
       gap: 24px;
 
       .about__section-heading {
-        font-size: var(--fs-s);
-        font-weight: lighter;
-        border-bottom: 2px solid var(--clr-primary);
-        padding-bottom: 4px;
+        @include mixins.section-heading;
       }
 
       .about__heading {
