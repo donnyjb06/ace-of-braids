@@ -8,6 +8,7 @@ import Button from '@/components/Button/Button'
 import { redirect } from 'next/navigation'
 import { motion } from 'motion/react'
 import { slideIn } from '@/lib/payload/utils'
+import Image from 'next/image'
 
 const fallbackWords = [
   'timeless power',
@@ -55,7 +56,8 @@ const Hero = (block: HeroBlock) => {
 
       <div className={styles.hero__overlay}></div>
 
-      <img src={first.url as string} alt={first.alt} className={styles.hero__image} fetchPriority='high' />
+      {/* <img src={first.url as string} alt={first.alt} className={styles.hero__image} fetchPriority='high' /> */}
+      <Image src={first.url as string} alt={first.alt} className={styles.hero__image} priority fill={true}/>
     </section>
   )
 }
