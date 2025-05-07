@@ -5,7 +5,8 @@ import './globals.scss'
 import Header from '@components/Header/Header'
 import NavBar from '@components/Nav/NavBar/NavBar'
 import Ripple from '@components/Ripple/Ripple'
-import ImageLoader from '@/components/ImageLoader/ImageLoader'
+import ImageLoader from '@/components/ImageLoader/ImageLoader';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const interSans = Inter({
   variable: '--font-inter-sans',
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interSans.variable}`}>
+        <SpeedInsights />
         <ImageLoader>
         <Ripple />
         <Header>
