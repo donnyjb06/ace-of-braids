@@ -482,6 +482,10 @@ export interface ServicesBlock {
  * via the `definition` "GalleryBlock".
  */
 export interface GalleryBlock {
+  heading?: string | null;
+  sectionHeading?: string | null;
+  ctaUrl?: string | null;
+  ctaLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'gallery-block';
@@ -579,6 +583,10 @@ export interface ServicesBlockSelect<T extends boolean = true> {
  * via the `definition` "GalleryBlock_select".
  */
 export interface GalleryBlockSelect<T extends boolean = true> {
+  heading?: T;
+  sectionHeading?: T;
+  ctaUrl?: T;
+  ctaLabel?: T;
   id?: T;
   blockName?: T;
 }
