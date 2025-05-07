@@ -5,7 +5,7 @@ import styles from './About.module.scss'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import { AboutBlock, Media } from '@/payload-types'
-import { slideIn } from '@/lib/payload/utils'
+import { slideIn } from '@/lib/utils'
 import Button from '@/components/Button/Button'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { redirect } from 'next/navigation'
@@ -22,11 +22,15 @@ const About = (block: AboutBlock) => {
   }
 
   const renderTextBlocks = useCallback(() => {
-    return !isPrimary ? textBlocks?.map((text, index) => (
-      <p key={index} className={styles.about__body}>
-        {text.textBlock}
-      </p>
-    )) : <p className={styles.about__body}>{body}</p>
+    return !isPrimary ? (
+      textBlocks?.map((text, index) => (
+        <p key={index} className={styles.about__body}>
+          {text.textBlock}
+        </p>
+      ))
+    ) : (
+      <p className={styles.about__body}>{body}</p>
+    )
   }, [textBlocks, body, isPrimary])
 
   if (!isPopulatedMedia(sectionImage)) {
@@ -37,7 +41,15 @@ const About = (block: AboutBlock) => {
 
   return (
     <section className={styles.about}>
-      {!isPrimary && <Image src="./leaf-icon.svg" alt="leaf-icon" width={212} height={221} className={styles['about__leaf-icon']}/>}
+      {!isPrimary && (
+        <Image
+          src="./leaf-icon.svg"
+          alt="leaf-icon"
+          width={212}
+          height={221}
+          className={styles['about__leaf-icon']}
+        />
+      )}
       <div className={styles.about__content}>
         {matches && (
           <motion.div className={styles['about__image-wrapper']} {...slideIn()}>

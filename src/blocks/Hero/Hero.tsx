@@ -7,8 +7,9 @@ import { FlipWords } from '@/components/ui/FlipWords/flip-words'
 import Button from '@/components/Button/Button'
 import { redirect } from 'next/navigation'
 import { motion } from 'motion/react'
-import { slideIn } from '@/lib/payload/utils'
+import { slideIn } from '@/lib/utils'
 import Image from 'next/image'
+import PlayingCards from '@/components/PlayingCards/PlayingCards'
 
 const fallbackWords = [
   'timeless power',
@@ -36,10 +37,7 @@ const Hero = (block: HeroBlock) => {
 
   return (
     <section className={styles.hero}>
-      <motion.div
-        className={styles.hero__content}
-        {...slideIn()}
-      >
+      <motion.div className={styles.hero__content} {...slideIn()}>
         <h1 className={styles.hero__heading}>{heading}</h1>
         {flipText && (
           <FlipWords words={words} duration={5000} className={styles['hero__flip-text']} />
@@ -57,7 +55,13 @@ const Hero = (block: HeroBlock) => {
       <div className={styles.hero__overlay}></div>
 
       {/* <img src={first.url as string} alt={first.alt} className={styles.hero__image} fetchPriority='high' /> */}
-      <Image src={first.url as string} alt={first.alt} className={styles.hero__image} priority fill={true}/>
+      <Image
+        src={first.url as string}
+        alt={first.alt}
+        className={styles.hero__image}
+        priority
+        fill={true}
+      />
     </section>
   )
 }
