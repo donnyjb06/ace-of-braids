@@ -1,0 +1,51 @@
+@use '../../styles/mixins';
+
+.services {
+  flex-direction: column;
+  align-items: center;
+  color: var(--clr-neutral-l);
+  @include mixins.section(16px, 36px, 80px, 140px);
+
+  &__section-heading {
+    @include mixins.section-heading;
+    margin-bottom: 20px;
+  }
+
+  &__heading {
+    @include mixins.main-heading;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  &__card-container {
+    display: flex;
+    gap: 20px;
+    min-width: 100%;
+    overflow: hidden;
+    user-select: none;
+
+    &:active div {
+      animation-play-state: paused;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover div {
+        animation-play-state: paused;
+      }
+    }
+  }
+
+  &__cta {
+    margin-top: 40px;
+  }
+
+  @media (width > 768px) {
+    &__heading {
+      margin-bottom: 60px;
+    }
+
+    &__cta {
+      margin-top: 60px;
+    }
+  }
+}

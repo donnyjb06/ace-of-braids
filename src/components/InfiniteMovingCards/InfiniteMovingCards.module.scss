@@ -1,0 +1,14 @@
+.horizontal-slider {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-shrink: 0;
+  animation: scroll 30s linear infinite;
+  user-select: none;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(calc(-100% - 20px))
+  }
+}

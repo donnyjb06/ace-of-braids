@@ -1,0 +1,53 @@
+.service-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 400px;
+  background-color: var(--clr-neutral-d);
+  border: 1px solid var(--clr-primary);
+  flex-shrink: 0 ;
+
+  &__image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    isolation: isolate;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    left: 50%;
+    translate: -50% -50%;
+    font-size: var(--fs-m);
+    font-weight: normal;
+    text-wrap: nowrap;
+    padding: 3px 12px 6px;
+    border-block: 1px solid white;
+    text-shadow: 0 0 5px black, 0 0 15px black;
+  }
+
+  &__gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to top, var(--clr-primary) 0%, transparent 40%);
+    mix-blend-mode: hard-light;
+  }
+
+  &__description {
+    margin: 28px 14px;
+    font-size: var(--fs-s);
+    text-align: center;
+  }
+}
