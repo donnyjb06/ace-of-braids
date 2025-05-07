@@ -1,0 +1,33 @@
+.playing-cards {
+  position: relative;
+  width: 100px;
+  height: 180px;
+
+  &__card {
+    position: absolute;
+    bottom: var(--bottom);
+    right: var(--right);
+    z-index: var(--z);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--clr-card);
+    width: var(--width);
+    height: var(--height);
+    border-radius: 10px;
+    animation: bounce 1s ease-in-out alternate infinite;
+  }
+
+  &__card--1 {
+    --clr-card: rgb(255, 255, 236);
+    --height: 180px;
+    --width: 100px;
+    --z: 2;
+  }
+}
+
+@keyframes bounce {
+  to {
+    translate: 0 10px;
+  }
+}
