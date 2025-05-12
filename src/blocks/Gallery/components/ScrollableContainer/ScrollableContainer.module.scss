@@ -1,0 +1,11 @@
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2vw;
+  overflow-x: hidden;
+
+  height: auto;
+  background-color: var(--clr-neutral-d);
+  width: 100%;
+}

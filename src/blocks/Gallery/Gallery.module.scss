@@ -1,0 +1,41 @@
+@use '../../styles/mixins';
+
+.gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--clr-neutral-l);
+  @include mixins.section(16px, 36px, 80px, 140px);
+
+  &__section-heading {
+    @include mixins.section-heading;
+  }
+
+  &__heading {
+    @include mixins.main-heading;
+    margin-block: 24px 40px;
+
+    @media (width > 768px) {
+      margin-block: 24px 60px;
+    }
+  }
+
+  &__cta {
+    @include mixins.section-heading;
+    border-color: var(--clr-neutral-l);
+    padding-bottom: 10px;
+    padding-right: 16px;
+    margin-top: 40px;
+    transition: 0.3s ease;
+
+    @media (width > 768px) {
+      margin-top: 52px;
+    }
+
+    &:hover {
+      padding-right: 25px;
+    }
+  }
+
+  
+}
